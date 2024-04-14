@@ -2,17 +2,17 @@ import './App.css';
 import * as React from 'react';
 import { StompSessionProvider } from "react-stomp-hooks";
 import { VehiclesTable } from "./components/VehiclesTable.js"
-import { PublishComponent } from "./components/PublishComponent.js";
-import {RecoilRoot} from "recoil";
+import { RecoilRoot } from "recoil";
+import { MapDisplay } from './components/MapDisplay.js';
 
 function App() {
-
   return (
     <div className="App">
       <RecoilRoot>
         <StompSessionProvider
           url={'http://localhost:5000/websocket'}>
-          <VehiclesTable />
+            <MapDisplay />
+            <VehiclesTable />
         </StompSessionProvider>
       </RecoilRoot>
     </div>
