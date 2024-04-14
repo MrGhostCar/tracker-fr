@@ -9,7 +9,7 @@ export const VehicleMarker = (id) => {
     return (
         <Marker position={[data.latitude, data.longitude]}>
             <Popup>
-                A pretty CSS3 popup. <br /> Easily customizable.
+                {id.id}
             </Popup>
         </Marker>
     )
