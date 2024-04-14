@@ -10,6 +10,9 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
+/**
+ * Lists the notifications in a table, each row is a notification object.
+ */
 export const NotificationsTable = () => {
   const ids = useRecoilValue(vehicleIds);
 
@@ -19,7 +22,7 @@ export const NotificationsTable = () => {
     set(vehiclesFamily(newMessage.id), newMessage);
   });
 
-  const setNotification = useRecoilCallback(({ set }) => (newMessage, ids) => {
+  const setNotification = useRecoilCallback(({ set }) => (newMessage) => {
     set(notificationsFamily(newMessage.id), newMessage);
   });
 
@@ -30,7 +33,7 @@ export const NotificationsTable = () => {
 
   useSubscription('/topic/notification', (message) => {
     const noti = JSON.parse(message.body);
-    setNotification(noti, ids);
+    setNotification(noti);
   });
 
   var renderedOutput = ids.map(id => <VehicleRow key={id} id={id} />)
@@ -38,7 +41,7 @@ export const NotificationsTable = () => {
   return (
     <>
       <TableContainer component={Paper} >
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <Table aria-label="simple table">
           <colgroup>
             <col width="50%" />
             <col width="50%" />
