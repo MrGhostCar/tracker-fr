@@ -1,7 +1,7 @@
 import './App.css';
 import * as React from 'react';
 import { StompSessionProvider } from "react-stomp-hooks";
-import { VehiclesTable } from "./components/VehiclesTable.js"
+import { NotificationsTable } from "./components/NotificationsTable.js"
 import { RecoilRoot } from "recoil";
 import { MapDisplay } from './components/MapDisplay.js';
 
@@ -12,7 +12,7 @@ function App() {
         <StompSessionProvider
           url={'http://localhost:5000/websocket'}>
             <MapDisplay />
-            <VehiclesTable />
+            <NotificationsTable />
         </StompSessionProvider>
       </RecoilRoot>
     </div>

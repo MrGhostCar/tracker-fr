@@ -3,10 +3,10 @@ import { VehicleMarker } from "./VehicleMarker.js";
 import { MapContainer, TileLayer } from 'react-leaflet'
 import { vehicleIds } from "../atom/VehiclesState.js"
 
-export const MapDisplay = (id) => {
+export const MapDisplay = () => {
 
   const ids = useRecoilValue(vehicleIds);
-  var vehiclesMarkers = ids.map(element => <VehicleMarker id={element} />)
+  var vehiclesMarkers = ids.map(id => <VehicleMarker key={id} id={id} />)
 
   return (
     <MapContainer center={[47.47581, 19.05749]} zoom={17} scrollWheelZoom={false} style={{ height: 500 }}>
