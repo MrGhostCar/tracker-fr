@@ -12,6 +12,7 @@ import Paper from '@mui/material/Paper';
 
 /**
  * Lists the notifications in a table, each row is a notification object.
+ * Also recieves data through websocket.
  */
 export const NotificationsTable = () => {
   const ids = useRecoilValue(vehicleIds);
@@ -36,7 +37,7 @@ export const NotificationsTable = () => {
     setNotification(noti);
   });
 
-  var renderedOutput = ids.map(id => <VehicleRow key={id} id={id} />)
+  var vehicleRows = ids.map(id => <VehicleRow key={id} id={id} />)
 
   return (
     <>
@@ -49,11 +50,11 @@ export const NotificationsTable = () => {
           <TableHead>
             <TableRow>
               <TableCell>Id </TableCell>
-              <TableCell>Last Notification</TableCell>
+              <TableCell>New notification</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {renderedOutput}
+            {vehicleRows}
           </TableBody>
         </Table>
       </TableContainer>

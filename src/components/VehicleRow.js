@@ -10,9 +10,7 @@ export const VehicleRow = ({ id }) => {
     let data = useRecoilValue(notificationsFamily(id));
 
     return (
-        <TableRow
-            key={id}
-        >
+        <TableRow key={id}>
             <TableCell>{id}</TableCell>
             <TableCell>{data.message}</TableCell>
         </TableRow>
